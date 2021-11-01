@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: Build-Vue
-      uses: ../actions
+      uses: ./action.yml
       with:
         username: 'thefrustrateddev'
         reponame: 'portfolio'
