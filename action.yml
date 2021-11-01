@@ -39,6 +39,10 @@ runs:
   steps:
       - name: Build Vue
         run: |
+              CONFIGFILE=/vue1.config.js
+              if [ ! -f "$CONFIGFILE" ]; then
+                  echo "$CONFIGFILE does not exist."
+              fi
               npm ci
               npm run build
         shell: bash
