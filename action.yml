@@ -22,6 +22,15 @@ inputs:
     description: 'Build script specified in packgae.json By default takes build as the script).'
     required: false
     default: 'message'
+  email:
+    description: 'Build script specified in packgae.json By default takes build as the script).'
+    required: false
+    default: 'admin@example.com'
+  name:
+    description: 'Build script specified in packgae.json By default takes build as the script).'
+    required: false
+    default: 'admin'
+
 runs:
   using: "composite"
   steps:
@@ -34,6 +43,8 @@ runs:
         run: |
               cd dist
               ln -s index.html 404.html
+              git config --global user.email "${{ inputs.email }}"
+              git config --global user.name "${{ inputs.name }}"
               git init
               git add .
               git commit -m '${{ inputs.gitmsg }}'
