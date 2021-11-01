@@ -30,7 +30,10 @@ inputs:
     description: 'Build script specified in packgae.json By default takes build as the script).'
     required: false
     default: 'admin'
-
+  commitmessage:
+    description: 'Build script specified in packgae.json By default takes build as the script).'
+    required: false
+    default: 'Create gh-pages'
 runs:
   using: "composite"
   steps:
@@ -47,6 +50,6 @@ runs:
               git config --global user.name "${{ inputs.name }}"
               git init
               git add .
-              git commit -m '${{ inputs.gitmsg }}'
+              git commit -m '${{ inputs.commitmessage }}'
               git push -f https://${{ inputs.username }}:${{ inputs.token }}@github.com/${{ inputs.username }}/${{ inputs.reponame }}.git ${{ inputs.basebranchname }}:gh-pages
         shell: bash
