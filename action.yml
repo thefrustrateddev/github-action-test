@@ -39,7 +39,7 @@ runs:
   steps:
       - name: Build Vue
         run: |
-              CONFIGFILE=/vue1.config.js
+              CONFIGFILE=/vue.config.js
               if [ ! -f "$CONFIGFILE" ]; then
                   echo "$CONFIGFILE does not exist."
                   echo "::error ::vue config file missing"
