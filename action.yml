@@ -42,6 +42,7 @@ runs:
               CONFIGFILE=/vue1.config.js
               if [ ! -f "$CONFIGFILE" ]; then
                   echo "$CONFIGFILE does not exist."
+                  echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
               fi
               npm ci
               npm run build
