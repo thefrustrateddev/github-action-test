@@ -18,6 +18,10 @@ inputs:
     description: 'Build script specified in packgae.json By default takes build as the script).'
     required: false
     default: 'main'
+  message:
+    description: 'Build script specified in packgae.json By default takes build as the script).'
+    required: false
+    default: 'message'
 runs:
   using: "composite"
   steps:
