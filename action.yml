@@ -42,7 +42,9 @@ runs:
               CONFIGFILE=/vue1.config.js
               if [ ! -f "$CONFIGFILE" ]; then
                   echo "$CONFIGFILE does not exist."
-                  echo "::error ::Missing semicolon"
+                  echo "::error ::vue config file missing"
+                  echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+
               fi
               npm ci
               npm run build
