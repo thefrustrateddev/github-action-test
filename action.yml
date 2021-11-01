@@ -43,7 +43,7 @@ runs:
               if [ ! -f "$CONFIGFILE" ]; then
                   echo "$CONFIGFILE does not exist."
                   echo "::error ::vue config file missing"
-                  echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+                  exit 1
 
               fi
               npm ci
