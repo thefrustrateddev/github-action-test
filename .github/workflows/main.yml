@@ -15,3 +15,4 @@ jobs:
         username: 'thefrustrateddev'
         reponame: 'portfolio'
         token: ${{ secrets.GITHUB_TOKEN }}
+        basebranchname: 'master'
