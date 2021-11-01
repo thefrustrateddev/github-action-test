@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: Build-Vue
-      uses: ./action.yml
+      uses: thefrustrateddev/vue-deploy-github-pages
       with:
         username: 'thefrustrateddev'
         reponame: 'portfolio'
