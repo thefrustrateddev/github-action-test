@@ -5,33 +5,29 @@ inputs:
     description: 'Username'
     required: true
   reponame:
-    description: 'Name of the repo where the actyion is added.'
+    description: 'Reponame'
     required: true
   token:
     description: 'Your Github token'
     required: true
   buildscript:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
+    description: 'Build script specified in package.json (By default takes build as the script).'
     required: false
     default: 'build'
   basebranchname:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
+    description: 'Base branch through which the gh pages should be created'
     required: false
-    default: 'main'
-  message:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
-    required: false
-    default: 'message'
+    default: 'master'
   email:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
+    description: 'Email for git config'
     required: false
-    default: 'admin@example.com'
+    default: 'action@example.com'
   name:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
+    description: 'Name for Git Config'
     required: false
-    default: 'admin'
+    default: 'action'
   commitmessage:
-    description: 'Build script specified in packgae.json By default takes build as the script).'
+    description: 'Commit message for creation of gh pages'
     required: false
     default: 'Create gh-pages'
 runs:
@@ -44,10 +40,9 @@ runs:
                   echo "$CONFIGFILE does not exist."
                   echo "::error ::vue config file missing"
                   exit 1
-
               fi
               npm ci
-              npm run build
+              npm run ${{ inputs.buildscript }}
         shell: bash
       - name: Create gh-pages
         run: |

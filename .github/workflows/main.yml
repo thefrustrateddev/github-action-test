@@ -4,12 +4,12 @@ on:
     branches: 
       - master
 jobs:
-  build_vue:
+  build_deploy_vue:
     runs-on: ubuntu-latest
-    name: Build Vue
+    name: Build and Deploy Vue
     steps:
     - uses: actions/checkout@v2
-    - id: Build-Vue
+    - id: Build-Deploy-Vue
       uses: thefrustrateddev/github-action-test@master
       with:
         username: 'thefrustrateddev'
